@@ -1,13 +1,33 @@
 docker-tailon
 =============
 
-I was looking for an easy way to expose application logs via web. Tailon does that very well, so I just needed an easy way to send my logs to Tailon: Docker volumes, of course :)
+An easy way to expose application logs via the web using the tailon project with all the advantages of a Docker container.
 
+# Build The Image
+
+Clone this repository or download the zip, then enter the root directory of the project and run the following command:
+
+```
+docker build --rm=true --tag="<username>/tailon" .
+```
+
+# Run The Container
 First run a conatiner you want to capture the logs from. If your conatiner was not given a name, grab the name and pass it to the Tailon container:
 
 ```
-docker run -it --rm -p 8084:8084 --volumes-from CONTAINER_NAME ipedrazas/tailon
+docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volumes-from CONTAINER_NAME akumor/tailon
 ```
 
-Access your web console in port 8084
-  
+or use tailon with logs on the host machine
+
+```
+docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volume=[HOST-DIR:]CONTAINER-DIR[:OPTIONS]]] CONTAINER_NAME akumor/tailon
+```
+
+Access the web console in port 8084
+
+# Resources
+
+https://github.com/gvalkov/tailon - tailon python project used for displaying logs through the web based interface
+https://github.com/ipedrazas/docker-tailon - Forked from this project
+https://hub.docker.com/r/library/python/ - Official repository for Python Docker image
