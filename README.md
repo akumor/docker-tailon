@@ -12,7 +12,7 @@ docker build --rm=true --tag="<username>/tailon" .
 ```
 
 # Run The Container
-First run a conatiner you want to capture the logs from. If your conatiner was not given a name, grab the name and pass it to the Tailon container:
+First run a conatiner you want to capture the logs from. If your container was not given a name, grab the name and pass it to the Tailon container:
 
 ```
 docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volumes-from CONTAINER_NAME akumor/tailon
@@ -24,7 +24,7 @@ or use tailon with logs on the host machine
 docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volume=[HOST-DIR:]CONTAINER-DIR[:OPTIONS]]] CONTAINER_NAME akumor/tailon
 ```
 
-Access the web console in port 8084
+Access the web console on port 8084
 
 # Resources
 
