@@ -21,7 +21,7 @@ docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volumes-f
 or use tailon with logs on the host machine
 
 ```
-docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volume=[HOST-DIR:]CONTAINER-DIR[:OPTIONS]]] CONTAINER_NAME akumor/tailon
+docker run -it --rm -p 8084:8084 -e "BASE=/PATH_TO_LOG /PATH_TO_LOG" --volume=[HOST-DIR:]CONTAINER-DIR[:OPTIONS]]] akumor/tailon
 ```
 
 Access the web console on port 8084
